@@ -1,0 +1,50 @@
+* {
+    margin: 50;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: url('https://img.pikbest.com/wp/202406/black-and-white-musical-notes-cartoon-style-3d-illustration-of-on-sheet-background_9860119.jpg!bwr800');  
+    background-size: 2200px;
+    background-blend-mode: soft-light;
+    background-position: top;
+    background-repeat: no-repeat;  
+    padding: 1rem;
+    text-align: center;
+    background-color: #80a8cdb6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ h1 {
+  font-size: 150px;
+  font-family: cursive;
+  color: white;
+  font-style: italic;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  
+ }
+  
+  header {
+    padding: 0.5rem;
+    width: 100%;
+    color: white;
+    background-color: black;
+  }
+
+  button {
+    font-size: 50px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #cbfae9;
+    color: white;
+  }
