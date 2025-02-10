@@ -1,14 +1,35 @@
+const tracks = document.querySelector();
+const image = document.querySelector();
+const genre = document.querySelector();
+const song = document.querySelector();
+const likes = document.querySelector();
+
+
 function getAllMusic() {
-fetch('http://localhost:3000/tracks')
-    .then(response => response.json())
+    fetch('./db.json')
+    .then((response) => response.json()) 
+    .then(data => {
+      console.log(data);
+      tracks.forEach(tracks => {
+        let img = document.querySelector('img');
+        img.src = tracks.pl.img;
+        // img.id = track.name;
+        img.genre = tracks.pl.name;
+      });
+    });
+    /*
+    fetch('./db.json')
+    .then(response => console.log(response.json()))
     .then(response => console.log(response))
-    tracks.forEach(tracks => {
+    response.forEach((tracks) => {
         let img = document.querySelector('img');
         img.src = tracks.img;
-        img.id = tracks.name;
+        // img.id = tracks.name;
         img.genre = tracks.pl.name;
-    })
+    });
+    */
 }
+getAllMusic();
 
 function search() {
     const paragraph = document.getElementById("p");
@@ -19,7 +40,12 @@ function search() {
         name: document.getElementById('').value,  
         genre: document.getElementById('').value,  
         image: document.getElementById('').value,  
+    }
 }
+function artist() {
 
 }
 
+function genre() {
+    
+}
