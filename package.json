@@ -1,0 +1,24 @@
+{
+  "name": "phase-1-project-phoenix-2",
+  "version": "1.0.0",
+  "description": "phase-1-project-phoenix-2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bltrova/phase-1-project-phoenix-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bltrova/phase-1-project-phoenix-2/issues"
+  },
+  "homepage": "https://github.com/bltrova/phase-1-project-phoenix-2#readme",
+  "dependencies": {
+    "@testing-library/dom": "^9.3.4",
+    "happy-dom": "^13.2.1",
+    "vitest": "^1.2.1"
+  }
+}

@@ -1,13 +1,16 @@
+const tracks = document.querySelector();
+
+
 function getAllMusic() {
     fetch('./db.json')
     .then((response) => response.json()) 
     .then(data => {
       console.log(data);
-      data.tracks.forEach(track => {
+      tracks.forEach(tracks => {
         let img = document.querySelector('img');
-        img.src = track.img;
+        img.src = tracks.pl.img;
         // img.id = track.name;
-        img.genre = track.pl.name;
+        img.genre = tracks.pl.name;
       });
     });
     /*
