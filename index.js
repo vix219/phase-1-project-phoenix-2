@@ -46,50 +46,51 @@ function getAllMusic() {
     */
 }
 
-function getMusicByArtits(artistName) {
-  console.log('artistName: ', artistName);
-  fetch('./db.json')
-  .then((response) => response.json()) 
-  .then(data => {
-    console.log(data);
-    // data.tracks.filter((tracks) => tracks.uNm === artistName)
-    // .map((items) => {
-    //   console.log(items);
-    // })
-    data.tracks.forEach((tracks) => {
-      if (tracks.uNm === artistName) {
-        console.log(tracks);
-        /*
-        let img = document.querySelector('img');
-        img.src = tracks.pl.img;
-        // img.id = track.name;
-        img.genre = tracks.pl.name;
-        */
-      }
-    });
+function playMusic(tracks) {
+  const videoEle = document.querySelector('video');
+  const imgEle = document.querySelector('img');
+  
+  tracks.forEach(track => {
+    if (videoEle && imgEle) {
+      videoEle.src = track.trackUrl; 
+      imgEle.src = track.img;
+      videoEle.addEventListener('click', () => {
+        videoEle.play();
+        videoEle.defaultMuted = true;
+        console.log(videoEle.outerHTML); 
+      });
+    }
   });
 }
 
-function searchArtist() {
-  console.log('search');
-  const paragraph = document.getElementById("message-artist");
-  const artistNameInput = document.getElementById("search-artist-button");
-  console.log(artistNameInput);
-  const artistName = document.getElementById("searchInput").value;
-  paragraph.innerHTML = "Searching " + "for " + artistName;
-  artistNameInput.addEventListener('click', () => getMusicByArtits(artistName))
-  // let artistSearch = {
-  //     name: document.getElementById('').value,  
-  //     genre: document.getElementById('').value,  
-  //     image: document.getElementById('').value,  
-  // }
+function getMusicByArtist(artistName) {
+  console.log('Searching for artist: ', artistName);
+  fetch('./db.json')
+    .then(response => response.json())
+    .then(data => {
+      // Filter tracks by the artist
+      const artistTracks = data.filter(track => track.artist.toLowerCase() === artistName.toLowerCase());
+
+      if (artistTracks.length > 0) {
+        playMusic(artistTracks); // Play the music related to the artist
+      } else {
+        console.log('No tracks found for artist: ', artistName);
+      }
+    })
+    .catch(error => console.error('Error fetching tracks:', error));
 }
 
-// function artist() {
-// }
+function searchArtist() {
+  console.log('search initiated');
+  const paragraph = document.getElementById("message-artist");
+  const artistNameInput = document.getElementById("search-artist-button");
+  const artistName = document.getElementById("searchInput").value;
 
-// function genre() {
-// }
+  paragraph.innerHTML = "Searching for " + artistName;
+  
+  // Trigger the search
+  getMusicByArtist(artistName);
+}
 
 function main() {
   const callButton = document.getElementById('search-artist-button');
@@ -97,6 +98,3 @@ function main() {
 }
 
 main();
-getAllMusic();
-getMusicByArtits();
-// searchArtist();
