@@ -3,6 +3,8 @@
 // const genre = document.querySelector();
 // const song = document.querySelector();
 // const likes = document.querySelector();
+const videoEle = document.querySelector('video');
+const imgEle = document.querySelector('img');
 
 // Create a function that fetches all data from db.json file
 // Add button in HTML file that searches through artist, or genre
@@ -44,6 +46,23 @@ function getAllMusic() {
         img.genre = tracks.pl.name;
     });
     */
+}
+
+function playMusic() {
+  fetch('./db.json')
+  .then(response => response.json())
+  .then(tracks => {
+      tracks.forEach(track => {
+        if (videoEle && imgEle) {
+        videoEle.src = track.trackUrl; 
+        imgEle.src = track.img;
+        videoEle.addEventListener('click', () => {
+        videoEle.play();
+        videoEle.defaultMuted = true;
+        console.log(videoEle.outerHTML); });}
+  });
+})
+.catch(error => console.error(error));
 }
 
 function getMusicByArtits(artistName) {

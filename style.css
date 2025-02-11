@@ -5,13 +5,8 @@
 }
 
 body {
-<<<<<<< HEAD
-  background: url('https://img.pikbest.com/wp/202406/black-and-white-musical-notes-cartoon-style-3d-illustration-of-on-sheet-background_9860119.jpg!bwr800');  
-  background-size: 100%;
-=======
   /* background: url('https://img.pikbest.com/wp/202406/black-and-white-musical-notes-cartoon-style-3d-illustration-of-on-sheet-background_9860119.jpg!bwr800');   */
   background-size: 2200px;
->>>>>>> a0f933f2b35edc335b369825bea2a0a5ca1dd714
   background-blend-mode: soft-light;
   background-position: bottom;
   background-repeat: no-repeat;  
@@ -44,13 +39,8 @@ header {
 }
 
 button {
-<<<<<<< HEAD
-  font-size: 25px;
-  border-radius: 5px;
-=======
   font-size: 15px;
   border-radius: 10px;
->>>>>>> a0f933f2b35edc335b369825bea2a0a5ca1dd714
 }
 
 input {
@@ -58,15 +48,9 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-<<<<<<< HEAD
-  border: none;
-  background-color: #f8f8f8;
-  color: rgb(5, 5, 5);
-=======
   border: 15px;
   background-color: #d3d6d5;
   color: rgb(51, 47, 47);
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
->>>>>>> a0f933f2b35edc335b369825bea2a0a5ca1dd714
 }
