@@ -5,7 +5,6 @@
 }
 
 body {
-  /* background: url('https://img.pikbest.com/wp/202406/black-and-white-musical-notes-cartoon-style-3d-illustration-of-on-sheet-background_9860119.jpg!bwr800');   */
   background-size: 2200px;
   background-blend-mode: soft-light;
   background-position: bottom;
@@ -18,6 +17,40 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 600px;
+  margin-left: 2%;
+  margin-bottom: 5%;
+}
+div.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  margin: 1rem 0;
+  max-width: calc(100vw - 2rem);
+}
+
+div.scroll-container {
+  padding: 10px;
+}
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery video {
+  width: large;
+  height: large;
+  height: large;
+}
+
+div.desc {
+  padding: 60px;
+  text-align: center;
+}
+
 h1 {
 font-size: 100px;
 font-family: 'Times New Roman', Times, serif;
