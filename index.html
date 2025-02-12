@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Music Box</title>
+    <meta http-equiv="Permissions-Policy" content="compute-pressure=(self)">
 </head>
 
 <body>
@@ -11,87 +12,63 @@
     <h2>Hear The Sound</h2>
     
     <div id="gallery-container" class="scroll-container">
-    
         <!-- video number 1 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
         <!-- video number 2 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
         <!-- video number 3 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
         <!-- video number 4 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
         <!-- video number 5 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
         <!-- video number 6 -->
         <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls>
-            </iframe>
+            <iframe class="video-src" width="300" height="250" controls></iframe>
             <div class="desc">Add a description of the image here</div>
         </div>
-
     </div>
 
-</body>
+    <br>
+    <br>
+    <p id="message-artist"></p>
+    <img>
+    <script defer type="module" src="index.js"></script>
+    <br>
 
-</html>
-
-
-        <!-- <input id="searchInput" type="text" placeholder="Artist Name"> -->
-        <!-- <button onclick="searchArtist()"><em>Search</em></button> -->
-        <!-- <button id="search-artist-button">Search</button> -->
-        <!-- <input type="submit" id='submit-button' value="Create" /> -->
-
+    <br>
+    <h3>Contribute To The Music Box</h3>
+    <br>
+    <form id="form">
+        <label for="Aname">Artist:   
+          <input type="text" id="Aname" name="fname" value="name">
+        </label><br>
+        
         <br>
+        <label for="Stitle">Song: 
+          <input type="text" id="Stitle" name="Stitle" value="title">
+        </label><br>
+        
         <br>
-        <p id="message-artist"></p>
-        <img>
-        <script defer type="module" src="index.js"></script>
-        <br>
-
-        <!-- <iframe id="video" width="820" height="545" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-        </iframe> -->
-
-        <br>
-        <h3>Contribute To The Music Box</h3>
-        <br>
-        <form >
-            <label for="fname">Artist:</label><br>
-            <input type="text" id="fname" name="fname" value="name"><br>
-            <label for="lname">Song:</label><br>
-            <input type="text" id="Stitle" name="Stitle" value="Title"><br>
-            <label for="lname">Video URL:</label><br>
-            <input type="text" id="Vlink" name="Vling" value="link"><br><br>
-            <input type="submit" value="Submit">
-        </form> 
-        <br>
-        <p>Thanks for contributing!</p>
-        <br>
-    </div>
-</body>
-
-</html>
+        <label for="Vlink">Video URL:   
+          <input type="text" id="Vlink" name="Vlink" value="link">
+        </label><br>
+        <br><br>
+        <input id="Submit" type="submit" value="Submit">
+      </form>
+      
