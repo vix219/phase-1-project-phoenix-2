@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    
+
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-<title></title>
-
+    <title>Music Box</title>
 </head>
 
 <body>
-    <div>
-        <h1>Music Box</h1>
-        <h2>Search for the Sound</h2>
-        <br>
-        <br>
+    <h1>Music Box</h1>
+    <h2>Hear The Sound</h2>
+    
+    <div id="gallery-container" class="scroll-container">
+    
+        <!-- video number 1 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
 
-        <input id="searchInput" type="text" placeholder="Artist Name">
+        <!-- video number 2 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <!-- video number 3 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <!-- video number 4 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <!-- video number 5 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <!-- video number 6 -->
+        <div class="gallery">
+            <iframe class="video-src" width="300" height="250" controls>
+            </iframe>
+            <div class="desc">Add a description of the image here</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+        <!-- <input id="searchInput" type="text" placeholder="Artist Name"> -->
         <!-- <button onclick="searchArtist()"><em>Search</em></button> -->
-        <button id="search-artist-button">Search</button>
+        <!-- <button id="search-artist-button">Search</button> -->
         <!-- <input type="submit" id='submit-button' value="Create" /> -->
 
         <br>
@@ -26,19 +73,17 @@
         <script defer type="module" src="index.js"></script>
         <br>
 
-        <iframe id="video" width="820" height="545" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-        </iframe>
+        <!-- <iframe id="video" width="820" height="545" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe> -->
 
         <br>
-        <h3>Contribut To The Music Box</h3>
+        <h3>Contribute To The Music Box</h3>
         <br>
-        <form action="/action_page.php">
+        <form >
             <label for="fname">Artist:</label><br>
             <input type="text" id="fname" name="fname" value="name"><br>
             <label for="lname">Song:</label><br>
             <input type="text" id="Stitle" name="Stitle" value="Title"><br>
-            <label for="lname">Genre:</label><br>
-            <input type="text" id="Gstyle" name="Gstyle" value="style"><br>
             <label for="lname">Video URL:</label><br>
             <input type="text" id="Vlink" name="Vling" value="link"><br><br>
             <input type="submit" value="Submit">

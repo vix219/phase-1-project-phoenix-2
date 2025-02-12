@@ -2,16 +2,16 @@
     "tracks": [
       {
         "id": "1",
-        "artist": "Ramones",
-        "song": "I Wanna Be Sedated",
-        "link": "https://youtu.be/bm51ihfi1p4",
-        "likes": 7
+        "artist": "Cécile Grace",
+        "song": "La Mer",
+        "link": "https://youtu.be/ZTW5QXMpX-M",
+        "likes": 6
       },
       {
        "id": "2",
-        "artist": "The Beatles",
-        "song": "Let It Be",
-        "link": "https://youtu.be/CGj85pVzRJs",
+        "artist": "Jorge Aragão",
+        "song": "Conselho | Macaco Sessions (Ao Vivo)",
+        "link": "https://youtu.be/9B_xznMpEj0",
         "likes": 8
       },
       {
@@ -25,28 +25,28 @@
         "id": "4",
         "artist": "Tiffany",
         "song": "I Think We're Alone Now",
-        "link": "https://youtu.be/w6Q3mHyzn78",
+        "link": "https://youtu.be/bypfMkgwpio",
         "likes": 4
       },
       {
         "id": "5",
-        "artist": "Q Lazarus",
-        "song": "Goodbye Horses",
-        "link": "https://youtu.be/RNVEU2MIkPQ",
+        "artist": "Charles Bradley",
+        "song": "cover of Black Sabbath's 'Changes'",
+        "link": "https://youtu.be/zfaOf70M4xs",
         "likes": 8
       },
       {
         "id": "6",
-        "artist": "Whitney Houston",
-        "song": "I Wanna Dance With Somebody",
-        "link": "https://youtu.be/QzZ-mtE1EHc",
-        "likes": 10
+        "artist": "Jawbreaker",
+        "song": "Boxcar",
+        "link": "https://youtu.be/4KGzXUmbyiQ",
+        "likes": 6
       },
       {
        "id": "7",
-        "artist": "Rage Against The Machine",
-        "song": "Wake Up",
-        "link": "https://youtu.be/QKPeo7FIQk4",
+        "artist": "FIDLAR",
+        "song": "West Coast",
+        "link": "https://youtu.be/ztlZq_qqu-4",
         "likes": 6
       }
     ]
