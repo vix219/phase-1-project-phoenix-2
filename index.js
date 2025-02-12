@@ -26,10 +26,10 @@
 //       console.log(data);
       /*
       tracks.forEach(tracks => {
-        let img = document.querySelector('img');
-        img.src = tracks.pl.img;
-        // img.id = track.name;
-        img.genre = tracks.pl.name;
+        let vid = document.querySelector('vid');
+        vid.src = tracks.pl.vid;
+        // vid.id = track.name;
+        vid.genre = tracks.pl.name;
       });
       */
     // });
@@ -38,22 +38,22 @@
     .then(response => console.log(response.json()))
     .then(response => console.log(response))
     response.forEach((tracks) => {
-        let img = document.querySelector('img');
-        img.src = tracks.img;
-        // img.id = tracks.name;
-        img.genre = tracks.pl.name;
+        let vid = document.querySelector('vid');
+        vid.src = tracks.vid;
+        // vid.id = tracks.name;
+        vid.genre = tracks.pl.name;
     });
     */
 // }
 
 // function playMusic(tracks) {
 //   const videoEle = document.querySelector('video');
-//   const imgEle = document.querySelector('img');
+//   const vidEle = document.querySelector('vid');
   
 //   tracks.forEach(track => {
-//     if (videoEle && imgEle) {
+//     if (videoEle && vidEle) {
 //       videoEle.src = track.trackUrl; 
-//       imgEle.src = track.img;
+//       vidEle.src = track.vid;
 //       videoEle.addEventListener('click', () => {
 //         videoEle.play();
 //         videoEle.defaultMuted = true;
@@ -120,7 +120,7 @@ function createIframe(videoId) {
   iframe.controls = true;
   iframe.src = `https://www.youtube.com/embed/${videoId}`;
 
-  iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+  
   iframe.allowFullscreen = true;
   return iframe;
 }
@@ -135,31 +135,81 @@ function createDescription(artist, song, likes) {
 
 //Function to display the music from the db.json file videos
 function displayMusic() {
-  fetch('./db.json')
-    .then(response => response.json())
-    .then(data => {
-      const tracks = data.tracks;
-      galleryContainer.innerHTML = ''; 
-      tracks.forEach(track => {
-        const videoId = getYouTubeVideoId(track.link);
-        if (videoId) {
-          const iframe = createIframe(videoId);
-          const descDiv = createDescription(track.artist, track.song, track.likes);
+  fetch('http://localhost:3000/tracks')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);  
+    const tracks = data;
+    galleryContainer.innerHTML = ''; 
+    tracks.forEach(track => {
+      const videoId = getYouTubeVideoId(track.link);
+      if (videoId) {
+        const iframe = createIframe(videoId);
+        const descDiv = createDescription(track.artist, track.song, track.likes);
 
-        
-          const galleryDiv = document.createElement('div');
-          galleryDiv.classList.add('gallery');
-          galleryDiv.appendChild(iframe);
-          galleryDiv.appendChild(descDiv);
+        const galleryDiv = document.createElement('div');
+        galleryDiv.classList.add('gallery');
+        galleryDiv.appendChild(iframe);
+        galleryDiv.appendChild(descDiv);
 
-          galleryContainer.appendChild(galleryDiv);
-        } else {
-          console.error('Invalid YouTube URL:', track.link);
-        }
-      });
-    })
-    .catch(error => console.error(error));
+        galleryContainer.appendChild(galleryDiv);
+      } else {
+        console.error('Invalid YouTube URL:', track.link);
+      }
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
 }
-
 //Invoke the function to load data
-window.onload = displayMusic;
+window.onload = displayMusic();
+
+function submitForm() {
+  let form = document.getElementById('form');
+  form.addEventListener('submit', function(event){ 
+    event.preventDefault();
+    
+   
+    let newVid = {
+      artist: document.getElementById('Aname').value, 
+      song: document.getElementById('Stitle').value,
+      link: document.getElementById('Vlink').value,
+      likes: 0 
+    };
+    
+    console.log(newVid);
+    
+   
+    fetch('http://localhost:3000/tracks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newVid),
+    })
+    .then(response => response.json())
+    .then(createdVid => {
+      console.log(createdVid);
+      
+      
+      const videoId = getYouTubeVideoId(createdVid.link);
+      if (videoId) {
+        const iframe = createIframe(videoId);
+        const descDiv = createDescription(createdVid.artist, createdVid.song, createdVid.likes);
+
+        const galleryDiv = document.createElement('div');
+        galleryDiv.classList.add('gallery');
+        galleryDiv.appendChild(iframe);
+        galleryDiv.appendChild(descDiv);
+
+        galleryContainer.appendChild(galleryDiv);
+      } else {
+        console.error('Invalid YouTube URL:', createdVid.link);
+      }
+
+      
+      form.reset();
+    })
+    .catch(error => console.error('Error submitting data:', error));
+  });
+}
+submitForm();
