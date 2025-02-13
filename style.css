@@ -10,7 +10,7 @@ body.darkMode {
 }
 
 .toggleMode {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   align-items: start;
   width: 100%;
@@ -110,6 +110,10 @@ div.scroll-container {
 div.scroll-container {
   padding: 10px;
 }
+.scroll-container button {
+  border: 0;
+}
+
 div.gallery:hover {
   border: 1px solid #777;
 }

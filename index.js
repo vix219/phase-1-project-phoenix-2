@@ -1,107 +1,4 @@
-// const tracks = document.querySelector();
-// const image = document.querySelector();
-// const genre = document.querySelector();
-// const song = document.querySelector();
-// const likes = document.querySelector();
-
-// Create a function that fetches all data from db.json file
-// Add button in HTML file that searches through artist, or genre
-// Create a function that displays and plays music of searched item
-//       - In that function display the information for the music: Artist name, Song name, Genre, Link to video.
-// Create an HTML button for "likes 👍🏼" and one for "dislikes 👎🏼"
-// Create a function that has a button for "likes", and eventListener for the "likes button".
-
-// Create a form with id of "Contribute to Music Box" in HTML that has
-//       - key:values of Artist name, Song name, Genre, Link to song. It has a form button of "   ".
-// Create a function that has an evenListener for the "Contribute to Music Box"
-// Remember to e.preventDefault(), e.target.reset() 
-// Invoke functions and append!
-// Make a fetch() with method oof 'POST' to add the new music with key:values from form to the db.json objects
-
-
-// function getAllMusic() {
-//     fetch('./db.json')
-//     .then((response) => response.json()) 
-//     .then(data => {
-//       console.log(data);
-      /*
-      tracks.forEach(tracks => {
-        let vid = document.querySelector('vid');
-        vid.src = tracks.pl.vid;
-        // vid.id = track.name;
-        vid.genre = tracks.pl.name;
-      });
-      */
-    // });
-    /*
-    fetch('./db.json')
-    .then(response => console.log(response.json()))
-    .then(response => console.log(response))
-    response.forEach((tracks) => {
-        let vid = document.querySelector('vid');
-        vid.src = tracks.vid;
-        // vid.id = tracks.name;
-        vid.genre = tracks.pl.name;
-    });
-    */
-// }
-
-// function playMusic(tracks) {
-//   const videoEle = document.querySelector('video');
-//   const vidEle = document.querySelector('vid');
-  
-//   tracks.forEach(track => {
-//     if (videoEle && vidEle) {
-//       videoEle.src = track.trackUrl; 
-//       vidEle.src = track.vid;
-//       videoEle.addEventListener('click', () => {
-//         videoEle.play();
-//         videoEle.defaultMuted = true;
-//         console.log(videoEle.outerHTML); 
-//       });
-//     }
-//   });
-// }
-
-// function getMusicByArtist(artistName) {
-//   console.log('Searching for artist: ', artistName);
-//   fetch('./db.json')
-//     .then(response => response.json())
-//     .then(data => {
-//       // Filter tracks by the artist
-//       const artistTracks = data.filter(track => track.artist.toLowerCase() === artistName.toLowerCase());
-
-//       if (artistTracks.length > 0) {
-//         playMusic(artistTracks); // Play the music related to the artist
-//       } else {
-//         console.log('No tracks found for artist: ', artistName);
-//       }
-//     })
-//     .catch(error => console.error('Error fetching tracks:', error));
-// }
-
-// function searchArtist() {
-//   console.log('search initiated');
-//   const paragraph = document.getElementById("message-artist");
-//   const artistNameInput = document.getElementById("search-artist-button");
-//   const artistName = document.getElementById("searchInput").value;
-
-//   paragraph.innerHTML = "Searching for " + artistName;
-  
-//   // Trigger the search
-//   getMusicByArtist(artistName);
-// }
-
-function main() {
-  // const callButton = document.getElementById('search-artist-button');
-  // callButton.addEventListener('click', () => searchArtist());
-  // playMusic();
-  
-}
-
-main();
-
-const galleryContainer = document.getElementById('gallery-container');
+let galleryContainer = document.getElementById('gallery-container');
 
 // Function to get youTube video id's from URL
 function getYouTubeVideoId(url) {
@@ -113,7 +10,7 @@ function getYouTubeVideoId(url) {
 
 // Function to create the iframe for each video in the browser display
 function createIframe(videoId) {
-  const iframe = document.createElement('iframe');
+  let iframe = document.createElement('iframe');
   iframe.classList.add('video-src');
   iframe.width = 300;
   iframe.height = 250;
@@ -126,12 +23,12 @@ function createIframe(videoId) {
 }
 
 // Function to create the description for each video
-function createDescription(artist, song, likes) {
-  const descDiv = document.createElement('div');
-  descDiv.classList.add('desc');
-  descDiv.innerHTML = `${artist} <br> ${song} <br>  ${likes} 👍🏼`;
-  return descDiv;
-}
+// function createDescription(artist, song, likes) {
+//   let descDiv = document.createElement('div');
+//   descDiv.classList.add('desc');
+//   descDiv.innerHTML = `${artist} <br> ${song} <br>  ${likes} 👍🏼`;
+//   return descDiv;
+// }
 
 //Function to display the music from the db.json file videos
 function displayMusic() {
@@ -139,15 +36,16 @@ function displayMusic() {
   .then(response => response.json())
   .then(data => {
     console.log(data);  
-    const tracks = data;
-    galleryContainer.innerHTML = ''; 
+    let tracks = data;
+    galleryContainer.innerHTML = '';
     tracks.forEach(track => {
-      const videoId = getYouTubeVideoId(track.link);
+      let videoId = getYouTubeVideoId(track.link);
       if (videoId) {
-        const iframe = createIframe(videoId);
-        const descDiv = createDescription(track.artist, track.song, track.likes);
+        let iframe = createIframe(videoId);
+        // let descDiv = createDescription(track.artist, track.song, track.likes);
+        let descDiv = createLikes(track.artist, track.song);
 
-        const galleryDiv = document.createElement('div');
+        let galleryDiv = document.createElement('div');
         galleryDiv.classList.add('gallery');
         galleryDiv.appendChild(iframe);
         galleryDiv.appendChild(descDiv);
@@ -168,7 +66,7 @@ function submitForm() {
   form.addEventListener('submit', function(event){ 
     event.preventDefault();
     
-   
+// Create newVid variable selecting the HTML elements to use
     let newVid = {
       artist: document.getElementById('Aname').value, 
       song: document.getElementById('Stitle').value,
@@ -178,7 +76,7 @@ function submitForm() {
     
     console.log(newVid);
     
-   
+// Make a POST request to add the newVid data to the JSON file, and gallery
     fetch('http://localhost:3000/tracks', {
       method: 'POST',
       headers: {
@@ -191,12 +89,12 @@ function submitForm() {
       console.log(createdVid);
       
       
-      const videoId = getYouTubeVideoId(createdVid.link);
+      let videoId = getYouTubeVideoId(createdVid.link);
       if (videoId) {
-        const iframe = createIframe(videoId);
-        const descDiv = createDescription(createdVid.artist, createdVid.song, createdVid.likes);
+        let iframe = createIframe(videoId);
+        let descDiv = createDescription(createdVid.artist, createdVid.song, createdVid.likes);
 
-        const galleryDiv = document.createElement('div');
+        let galleryDiv = document.createElement('div');
         galleryDiv.classList.add('gallery');
         galleryDiv.appendChild(iframe);
         galleryDiv.appendChild(descDiv);
@@ -217,3 +115,39 @@ submitForm();
 document.querySelector('input[type="checkbox"]').addEventListener('change', function(event) {
   document.body.classList.toggle('darkMode');
 });
+
+function createLikes(artist, song) {
+  let likeCount = 0;
+  let dislikeCount = 0;
+
+  let descDiv = document.createElement('div');
+  descDiv.classList.add('desc');
+
+  descDiv.innerHTML = `${artist} <br> ${song} <br> Likes: <span id="likeStatus">${likeCount}
+  </span> <br> Dislikes: <span id="dislikeStatus">${dislikeCount}</span>`;
+
+  let likeButton = document.createElement('button');
+  likeButton.textContent = '👍';
+  likeButton.onclick = function() {
+      likeCount++;
+      descDiv.querySelector('#likeStatus').textContent = `${likeCount}`; // Update like count
+  };
+
+  let dislikeButton = document.createElement('button');
+  dislikeButton.textContent = '👎';
+  dislikeButton.onclick = function() {
+    console.log('opa');
+      dislikeCount++;
+      descDiv.querySelector('#dislikeStatus').textContent = `${dislikeCount} `; // Update dislike count
+  };
+
+  let buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('button-container');
+  buttonContainer.appendChild(likeButton);
+  buttonContainer.appendChild(dislikeButton);
+
+  descDiv.appendChild(buttonContainer);
+
+  return descDiv;
+}
+createLikes();
