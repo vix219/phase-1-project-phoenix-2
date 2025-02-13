@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
 let galleryContainer = document.getElementById('gallery-container');
 
 // Function to get youTube video id's from URL
@@ -23,12 +28,21 @@ function createIframe(videoId) {
 }
 
 // Function to create the description for each video
+<<<<<<< HEAD
 // function createDescription(artist, song, likes) {
 //   let descDiv = document.createElement('div');
 //   descDiv.classList.add('desc');
 //   descDiv.innerHTML = `${artist} <br> ${song} <br>  ${likes} 👍🏼`;
 //   return descDiv;
 // }
+=======
+function createDescription(artist, song, likes) {
+  let descDiv = document.createElement('div');
+  descDiv.classList.add('desc');
+  descDiv.innerHTML = `${artist} <br> ${song} <br>  ${likes} 👍🏼`;
+  return descDiv;
+}
+>>>>>>> main
 
 //Function to display the music from the db.json file videos
 function displayMusic() {
@@ -37,13 +51,21 @@ function displayMusic() {
   .then(data => {
     console.log(data);  
     let tracks = data;
+<<<<<<< HEAD
     galleryContainer.innerHTML = '';
+=======
+    galleryContainer.innerHTML = ''; 
+>>>>>>> main
     tracks.forEach(track => {
       let videoId = getYouTubeVideoId(track.link);
       if (videoId) {
         let iframe = createIframe(videoId);
+<<<<<<< HEAD
         // let descDiv = createDescription(track.artist, track.song, track.likes);
         let descDiv = createLikes(track.artist, track.song);
+=======
+        let descDiv = createDescription(track.artist, track.song, track.likes);
+>>>>>>> main
 
         let galleryDiv = document.createElement('div');
         galleryDiv.classList.add('gallery');
@@ -123,22 +145,36 @@ function createLikes(artist, song) {
   let descDiv = document.createElement('div');
   descDiv.classList.add('desc');
 
+<<<<<<< HEAD
   descDiv.innerHTML = `${artist} <br> ${song} <br> Likes: <span id="likeStatus">${likeCount}
   </span> <br> Dislikes: <span id="dislikeStatus">${dislikeCount}</span>`;
+=======
+  descDiv.innerHTML = `${artist} <br> ${song} <br> Likes: <input id="likeStatus">${likeCount}
+  </input> <br> Dislikes: <input id="dislikeStatus">${dislikeCount}</input>`;
+>>>>>>> main
 
   let likeButton = document.createElement('button');
   likeButton.textContent = '👍';
   likeButton.onclick = function() {
       likeCount++;
+<<<<<<< HEAD
       descDiv.querySelector('#likeStatus').textContent = `${likeCount}`; // Update like count
+=======
+      descDiv.querySelector('likeStatus').textContent = `${likeCount}`; // Update like count
+>>>>>>> main
   };
 
   let dislikeButton = document.createElement('button');
   dislikeButton.textContent = '👎';
   dislikeButton.onclick = function() {
+<<<<<<< HEAD
     console.log('opa');
       dislikeCount++;
       descDiv.querySelector('#dislikeStatus').textContent = `${dislikeCount} `; // Update dislike count
+=======
+      dislikeCount++;
+      descDiv.querySelector('dislikeStatus').textContent = `${dislikeCount} `; // Update dislike count
+>>>>>>> main
   };
 
   let buttonContainer = document.createElement('div');
