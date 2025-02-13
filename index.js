@@ -1,11 +1,6 @@
 
-function main() {
-  
-}
 
-main();
-
-const galleryContainer = document.getElementById('gallery-container');
+let galleryContainer = document.getElementById('gallery-container');
 
 // Function to get youTube video id's from URL
 function getYouTubeVideoId(url) {
@@ -17,7 +12,7 @@ function getYouTubeVideoId(url) {
 
 // Function to create the iframe for each video in the browser display
 function createIframe(videoId) {
-  const iframe = document.createElement('iframe');
+  let iframe = document.createElement('iframe');
   iframe.classList.add('video-src');
   iframe.width = 300;
   iframe.height = 250;
@@ -31,7 +26,7 @@ function createIframe(videoId) {
 
 // Function to create the description for each video
 function createDescription(artist, song, likes) {
-  const descDiv = document.createElement('div');
+  let descDiv = document.createElement('div');
   descDiv.classList.add('desc');
   descDiv.innerHTML = `${artist} <br> ${song} <br>  ${likes} 👍🏼`;
   return descDiv;
@@ -43,15 +38,15 @@ function displayMusic() {
   .then(response => response.json())
   .then(data => {
     console.log(data);  
-    const tracks = data;
+    let tracks = data;
     galleryContainer.innerHTML = ''; 
     tracks.forEach(track => {
-      const videoId = getYouTubeVideoId(track.link);
+      let videoId = getYouTubeVideoId(track.link);
       if (videoId) {
-        const iframe = createIframe(videoId);
-        const descDiv = createDescription(track.artist, track.song, track.likes);
+        let iframe = createIframe(videoId);
+        let descDiv = createDescription(track.artist, track.song, track.likes);
 
-        const galleryDiv = document.createElement('div');
+        let galleryDiv = document.createElement('div');
         galleryDiv.classList.add('gallery');
         galleryDiv.appendChild(iframe);
         galleryDiv.appendChild(descDiv);
@@ -95,12 +90,12 @@ function submitForm() {
       console.log(createdVid);
       
       
-      const videoId = getYouTubeVideoId(createdVid.link);
+      let videoId = getYouTubeVideoId(createdVid.link);
       if (videoId) {
-        const iframe = createIframe(videoId);
-        const descDiv = createDescription(createdVid.artist, createdVid.song, createdVid.likes);
+        let iframe = createIframe(videoId);
+        let descDiv = createDescription(createdVid.artist, createdVid.song, createdVid.likes);
 
-        const galleryDiv = document.createElement('div');
+        let galleryDiv = document.createElement('div');
         galleryDiv.classList.add('gallery');
         galleryDiv.appendChild(iframe);
         galleryDiv.appendChild(descDiv);
@@ -121,3 +116,38 @@ submitForm();
 document.querySelector('input[type="checkbox"]').addEventListener('change', function(event) {
   document.body.classList.toggle('darkMode');
 });
+
+function createLikes(artist, song) {
+  let likeCount = 0;
+  let dislikeCount = 0;
+
+  let descDiv = document.createElement('div');
+  descDiv.classList.add('desc');
+
+  descDiv.innerHTML = `${artist} <br> ${song} <br> Likes: <input id="likeStatus">${likeCount}
+  </input> <br> Dislikes: <input id="dislikeStatus">${dislikeCount}</input>`;
+
+  let likeButton = document.createElement('button');
+  likeButton.textContent = '👍';
+  likeButton.onclick = function() {
+      likeCount++;
+      descDiv.querySelector('likeStatus').textContent = `${likeCount}`; // Update like count
+  };
+
+  let dislikeButton = document.createElement('button');
+  dislikeButton.textContent = '👎';
+  dislikeButton.onclick = function() {
+      dislikeCount++;
+      descDiv.querySelector('dislikeStatus').textContent = `${dislikeCount} `; // Update dislike count
+  };
+
+  let buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('button-container');
+  buttonContainer.appendChild(likeButton);
+  buttonContainer.appendChild(dislikeButton);
+
+  descDiv.appendChild(buttonContainer);
+
+  return descDiv;
+}
+createLikes();
