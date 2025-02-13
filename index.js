@@ -214,15 +214,6 @@ function submitForm() {
 }
 submitForm();
 
-const toggleSwitch = document.getElementById('toggleSwitch');
-toggleSwitch.addEventListener('click', toggleMode());
-
-function toggleMode() {
-  const currentColor = document.body.style.backgroundColor;
-  if(currentColor === 'white' || currentColor === 'black') {
-    document.body.style.backgroundColor = 'black';
-  } else {
-    document.body.style.backgroundColor = 'white';
-  }
-}
-toggleMode();
+document.querySelector('input[type="checkbox"]').addEventListener('change', function(event) {
+  document.body.classList.toggle('darkMode');
+});

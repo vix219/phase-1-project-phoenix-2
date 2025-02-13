@@ -6,7 +6,7 @@
     <title>Music Box</title>
     <meta http-equiv="Permissions-Policy" content="compute-pressure=(self)">
 </head>
-    <body class="dark-mode">
+    <body>
         <div class="toggleMode">
             <div>
                 <h4 class="left">Light/Dark</h4>
@@ -16,68 +16,73 @@
                 </label>
             </div>
         </div>
+        
         <div>
-    <h1>Music Box</h1>
-    <h2>Hear The Sound</h2>
+            <h1>Music Box</h1>
+            <h2>Hear The Sound</h2>
     
-    <div id="gallery-container" class="scroll-container">
-        <!-- video number 1 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-        <!-- video number 2 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-        <!-- video number 3 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-        <!-- video number 4 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-        <!-- video number 5 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-        <!-- video number 6 -->
-        <div class="gallery">
-            <iframe class="video-src" width="300" height="250" controls></iframe>
-            <div class="desc">Add a description of the image here</div>
-        </div>
-    </div>
+            <div id="gallery-container" class="scroll-container">
+                <!-- video number 1 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <!-- video number 2 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <!-- video number 3 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <!-- video number 4 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <!-- video number 5 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+                <!-- video number 6 -->
+                <div class="gallery">
+                    <iframe class="video-src" width="300" height="250" controls></iframe>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+            </div>
 
-    <br>
-    <br>
-    <p id="message-artist"></p>
-    <img>
-    <script defer type="module" src="index.js"></script>
-    <br>
+            <br>
+            <br>
+            <p id="message-artist"></p>
+            <img>
+            <br>
 
-    <br>
-    <h3>Contribute To The Music Box</h3>
-    <br>
-    <form id="form">
-        <label for="Aname">Artist:   
-          <input type="text" id="Aname" name="fname" value="name">
-        </label><br>
+            <br>
+            <h3>Contribute To The Music Box</h3>
+            <br>
+            <form id="form">
+                <label for="Aname">Artist:   
+                <input type="text" id="Aname" name="fname" value="name">
+                </label><br>
+                
+                <br>
+                <label for="Stitle">Song: 
+                <input type="text" id="Stitle" name="Stitle" value="title">
+                </label><br>
+                
+                <br>
+                <label for="Vlink">Video URL:   
+                <input type="text" id="Vlink" name="Vlink" value="link">
+                </label><br>
+                <br><br>
+                <input id="Submit" type="submit" value="Submit">
+            </form>
+        </div>
         
-        <br>
-        <label for="Stitle">Song: 
-          <input type="text" id="Stitle" name="Stitle" value="title">
-        </label><br>
-        
-        <br>
-        <label for="Vlink">Video URL:   
-          <input type="text" id="Vlink" name="Vlink" value="link">
-        </label><br>
-        <br><br>
-        <input id="Submit" type="submit" value="Submit">
-      </form>
+        <script defer type="module" src="index.js"></script>
+    </body>
+</html>
       
