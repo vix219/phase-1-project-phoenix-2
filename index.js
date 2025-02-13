@@ -168,7 +168,7 @@ function submitForm() {
   form.addEventListener('submit', function(event){ 
     event.preventDefault();
     
-   
+// Create newVid variable selecting the HTML elements to use
     let newVid = {
       artist: document.getElementById('Aname').value, 
       song: document.getElementById('Stitle').value,
@@ -178,7 +178,7 @@ function submitForm() {
     
     console.log(newVid);
     
-   
+// Make a POST request to add the newVid data to the JSON file, and gallery
     fetch('http://localhost:3000/tracks', {
       method: 'POST',
       headers: {
