@@ -1,16 +1,95 @@
-
-
 body {
-  background-size: 2200px;
-  background-blend-mode: soft-light;
-  background-position: bottom;
-  background-repeat: no-repeat;  
-  padding: 1rem;
-  background-color: #e2e8eeb6;
+  padding: 20px;
+  color: black;
+  background-color: #f2f2f2;
+  transition: all 0.5s ease;
+}
+body.darkMode {
+  background-color: black;
+  color: white;
+}
+
+.toggleMode {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
+  width: 100%;
+}
+
+.toggleSwitch {
+  background-color: black;
+  color: white;
+}
+.left {
+  size: 15px;
+  padding: 3px 12px 3px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 0px solid;
+  outline: none;
+  background-color: #D9E8FB;
+  color: #74747c;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 21px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 25px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 div.gallery {
@@ -44,6 +123,9 @@ div.gallery video {
 div.desc {
   padding: 60px;
   text-align: center;
+}
+body.darkMode div.desc {
+  color: black;
 }
 
 h1 {
@@ -95,7 +177,7 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-div {
+.gallery {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
