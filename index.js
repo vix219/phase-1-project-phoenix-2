@@ -213,3 +213,7 @@ function submitForm() {
   });
 }
 submitForm();
+
+document.querySelector('input[type="checkbox"]').addEventListener('change', function(event) {
+  document.body.classList.toggle('darkMode');
+});
